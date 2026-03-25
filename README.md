@@ -41,7 +41,7 @@ If you use this dataset in your research, please follow the licensing requiremen
   └── label.npy.        # Data Quality Labels for approach curves.
 ```
 
-The file format, `.pkl`, is powered by the `Pickle` package in Python, while `NumPy` package for `.npy` format. Each curvers in the two `.pkl` files are paired, as they are collected in one test including both the approach and retraction process. Also, the order of the labels is consistent with the curve.
+The file format, `.pkl`, is powered by the `Joblib` package in Python, while `NumPy` package for `.npy` format. Each curvers in the two `.pkl` files are paired, as they are collected in one test including both the approach and retraction process. Also, the order of the labels is consistent with the curve.
 
 ---
 
