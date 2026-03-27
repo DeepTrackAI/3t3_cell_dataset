@@ -36,12 +36,18 @@ If you use this dataset in your research, please follow the licensing requiremen
 
 ```bash
 /3t3_cell_dataset  
-  ├── approach.pkl.     # Approach curves.
-  ├── retraction.pkl    # Retraction curves.
-  └── label.npy.        # Data Quality Labels for approach curves.
+  ├── approach\               # Approach curves.
+  │   ├── <filename_1>.pkl
+  │   ├── <filename_2>.pkl  
+  │   └── ...  
+  ├── retraction\             # Retraction curves.
+  │   ├── <filename_1>.pkl  
+  │   ├── <filename_2>.pkl  
+  │   └── ...  
+  └── label.npy               # Data Quality Labels for approach curves.
 ```
 
-The file format, `.pkl`, is powered by the `Joblib` package in Python, while `NumPy` package for `.npy` format. Each curvers in the two `.pkl` files are paired, as they are collected in one test including both the approach and retraction process. Also, the order of the labels is consistent with the curve.
+The file format, `.npy`, is powered by the `NumPy` package in Python. Each curvers in the two `.pkl` files are paired, as they are collected in one test including both the approach and retraction process. Also, the order of the labels is consistent with the curve.
 
 ---
 
