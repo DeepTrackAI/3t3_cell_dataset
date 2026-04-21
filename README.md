@@ -9,14 +9,18 @@ These data were used for developing quality control technology for AFM force spe
 Each force spectroscopy test contains:
 - **Approach part**: Vertical tip position (µm) and vertical deflection (nN) collected in the approach process.
 - **Retraction part**: The same variables as previous term that are collected in the retraction part.
+- **Contact Point**: Contact point(µm) estimated by Hertz model, based on the approach part.
+- **Young's Modulus**: Young's modulus (Pa) estimated by Hertz model, based on the approach part.
 - **Data Quality Label**: only for the approach part, `0` is the good curve, `1` is the bad one, and `-1` is unknown.
 
 ### Summary
 - **Number of force spectroscopy tests**: 2548
 - **Number of curves per test**: 2, one for the approach part, one for the retraction part
+- **Number of contact points per test**: 1, based on approach part
+- **Number of Young's modulus per test**: 1, based on approach part
 - **Number of labels for data quality per test**: 1, only for approach part
 - **Data size**: variable, depending on the topology of cell sample
-- **Data format**: 64-bit float number for force spectroscopy data and 8-bit integer number for label data
+- **Data format**: 64-bit float number for force spectroscopy data, contact point, and Young's modulus, 8-bit integer number for label data
 
 ---
 
@@ -37,17 +41,20 @@ If you use this dataset in your research, please follow the licensing requiremen
 ```bash
 /3t3_cell_dataset  
   ├── approach\               # Approach curves.
-  │   ├── <filename_1>.pkl
-  │   ├── <filename_2>.pkl  
+  │   ├── <filename_1>.npy
+  │   ├── <filename_2>.npy  
   │   └── ...  
   ├── retraction\             # Retraction curves.
-  │   ├── <filename_1>.pkl  
-  │   ├── <filename_2>.pkl  
+  │   ├── <filename_1>.npy  
+  │   ├── <filename_2>.npy  
   │   └── ...  
-  └── label.npy               # Data Quality Labels for approach curves.
+  ├── contact_point.npy       # Contact point estimated by Hertz model.
+  ├── young_modulus.npy       # Young's modulus estimated by Hertz model.
+  └── label.npy               # Data quality labels for approach curves.
+
 ```
 
-The file format, `.npy`, is powered by the `NumPy` package in Python. Each curvers in the two `.pkl` files are paired, as they are collected in one test including both the approach and retraction process. Also, the order of the labels is consistent with the curve.
+The file format, `.npy`, is powered by the `NumPy` package in Python. Each curvers in the two `.pkl` files are paired, as they are collected in one test including both the approach and retraction process. Also, the order of the labels/contact points/Young's modulus is consistent with the curve.
 
 ---
 
